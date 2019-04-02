@@ -7,17 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C34079BE2251B41500F22E1A /* fishhook.c in Sources */ = {isa = PBXBuildFile; fileRef = C34079BA2251B41500F22E1A /* fishhook.c */; };
+		C34079BF2251B41500F22E1A /* hook.c in Sources */ = {isa = PBXBuildFile; fileRef = C34079BC2251B41500F22E1A /* hook.c */; };
+		C34079C22251BB3C00F22E1A /* hook_core_arm64.c in Sources */ = {isa = PBXBuildFile; fileRef = C34079C12251BB3C00F22E1A /* hook_core_arm64.c */; };
+		C3A66B36225205490009BE77 /* hook_core_x64.c in Sources */ = {isa = PBXBuildFile; fileRef = C3A66B35225205490009BE77 /* hook_core_x64.c */; };
+		C3A66B3922520ABC0009BE77 /* hook_utils.c in Sources */ = {isa = PBXBuildFile; fileRef = C3A66B3822520ABC0009BE77 /* hook_utils.c */; };
+		C3A66B3C22520B9C0009BE77 /* hook_core.c in Sources */ = {isa = PBXBuildFile; fileRef = C3A66B3B22520B9C0009BE77 /* hook_core.c */; };
 		C3CC7D58224A20D500FF9768 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C3CC7D57224A20D500FF9768 /* AppDelegate.m */; };
 		C3CC7D5B224A20D500FF9768 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3CC7D5A224A20D500FF9768 /* ViewController.m */; };
 		C3CC7D5E224A20D500FF9768 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3CC7D5C224A20D500FF9768 /* Main.storyboard */; };
 		C3CC7D60224A20DC00FF9768 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3CC7D5F224A20DC00FF9768 /* Assets.xcassets */; };
 		C3CC7D63224A20DC00FF9768 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3CC7D61224A20DC00FF9768 /* LaunchScreen.storyboard */; };
 		C3CC7D66224A20DC00FF9768 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C3CC7D65224A20DC00FF9768 /* main.m */; };
-		C3CC7D6E224A21EA00FF9768 /* fishhook.c in Sources */ = {isa = PBXBuildFile; fileRef = C3CC7D6C224A21EA00FF9768 /* fishhook.c */; };
-		C3E4FF6B224C774F00B55BAC /* hook_.c in Sources */ = {isa = PBXBuildFile; fileRef = C3E4FF6A224C774F00B55BAC /* hook_.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C34079BA2251B41500F22E1A /* fishhook.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = fishhook.c; sourceTree = "<group>"; };
+		C34079BB2251B41500F22E1A /* fishhook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fishhook.h; sourceTree = "<group>"; };
+		C34079BC2251B41500F22E1A /* hook.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hook.c; sourceTree = "<group>"; };
+		C34079BD2251B41500F22E1A /* hook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hook.h; sourceTree = "<group>"; };
+		C34079C02251BB3C00F22E1A /* hook_core_arm64.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hook_core_arm64.h; sourceTree = "<group>"; };
+		C34079C12251BB3C00F22E1A /* hook_core_arm64.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = hook_core_arm64.c; sourceTree = "<group>"; };
+		C3A66B34225205490009BE77 /* hook_core_x64.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hook_core_x64.h; sourceTree = "<group>"; };
+		C3A66B35225205490009BE77 /* hook_core_x64.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = hook_core_x64.c; sourceTree = "<group>"; };
+		C3A66B3722520ABC0009BE77 /* hook_utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hook_utils.h; sourceTree = "<group>"; };
+		C3A66B3822520ABC0009BE77 /* hook_utils.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = hook_utils.c; sourceTree = "<group>"; };
+		C3A66B3A22520B9C0009BE77 /* hook_core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hook_core.h; sourceTree = "<group>"; };
+		C3A66B3B22520B9C0009BE77 /* hook_core.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = hook_core.c; sourceTree = "<group>"; };
 		C3CC7D53224A20D400FF9768 /* ObjCHook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObjCHook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3CC7D56224A20D500FF9768 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C3CC7D57224A20D500FF9768 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -28,10 +44,6 @@
 		C3CC7D62224A20DC00FF9768 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C3CC7D64224A20DC00FF9768 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3CC7D65224A20DC00FF9768 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C3CC7D6C224A21EA00FF9768 /* fishhook.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = fishhook.c; sourceTree = "<group>"; };
-		C3CC7D6D224A21EA00FF9768 /* fishhook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fishhook.h; sourceTree = "<group>"; };
-		C3E4FF69224C774F00B55BAC /* hook_.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hook_.h; sourceTree = "<group>"; };
-		C3E4FF6A224C774F00B55BAC /* hook_.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = hook_.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +57,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C34079B92251B41500F22E1A /* hook */ = {
+			isa = PBXGroup;
+			children = (
+				C34079BA2251B41500F22E1A /* fishhook.c */,
+				C34079BB2251B41500F22E1A /* fishhook.h */,
+				C34079BC2251B41500F22E1A /* hook.c */,
+				C34079BD2251B41500F22E1A /* hook.h */,
+				C3A66B3A22520B9C0009BE77 /* hook_core.h */,
+				C3A66B3B22520B9C0009BE77 /* hook_core.c */,
+				C34079C02251BB3C00F22E1A /* hook_core_arm64.h */,
+				C34079C12251BB3C00F22E1A /* hook_core_arm64.c */,
+				C3A66B34225205490009BE77 /* hook_core_x64.h */,
+				C3A66B35225205490009BE77 /* hook_core_x64.c */,
+				C3A66B3722520ABC0009BE77 /* hook_utils.h */,
+				C3A66B3822520ABC0009BE77 /* hook_utils.c */,
+			);
+			path = hook;
+			sourceTree = "<group>";
+		};
 		C3CC7D4A224A20D400FF9768 = {
 			isa = PBXGroup;
 			children = (
@@ -64,8 +95,7 @@
 		C3CC7D55224A20D400FF9768 /* ObjCHook */ = {
 			isa = PBXGroup;
 			children = (
-				C3CC7D6C224A21EA00FF9768 /* fishhook.c */,
-				C3CC7D6D224A21EA00FF9768 /* fishhook.h */,
+				C34079B92251B41500F22E1A /* hook */,
 				C3CC7D56224A20D500FF9768 /* AppDelegate.h */,
 				C3CC7D57224A20D500FF9768 /* AppDelegate.m */,
 				C3CC7D59224A20D500FF9768 /* ViewController.h */,
@@ -75,8 +105,6 @@
 				C3CC7D61224A20DC00FF9768 /* LaunchScreen.storyboard */,
 				C3CC7D64224A20DC00FF9768 /* Info.plist */,
 				C3CC7D65224A20DC00FF9768 /* main.m */,
-				C3E4FF69224C774F00B55BAC /* hook_.h */,
-				C3E4FF6A224C774F00B55BAC /* hook_.c */,
 			);
 			path = ObjCHook;
 			sourceTree = "<group>";
@@ -151,11 +179,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C34079C22251BB3C00F22E1A /* hook_core_arm64.c in Sources */,
+				C3A66B3C22520B9C0009BE77 /* hook_core.c in Sources */,
 				C3CC7D5B224A20D500FF9768 /* ViewController.m in Sources */,
 				C3CC7D66224A20DC00FF9768 /* main.m in Sources */,
-				C3CC7D6E224A21EA00FF9768 /* fishhook.c in Sources */,
+				C34079BF2251B41500F22E1A /* hook.c in Sources */,
+				C3A66B36225205490009BE77 /* hook_core_x64.c in Sources */,
 				C3CC7D58224A20D500FF9768 /* AppDelegate.m in Sources */,
-				C3E4FF6B224C774F00B55BAC /* hook_.c in Sources */,
+				C3A66B3922520ABC0009BE77 /* hook_utils.c in Sources */,
+				C34079BE2251B41500F22E1A /* fishhook.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,8 +330,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 87Q8YX4GE8;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 492U995837;
 				INFOPLIST_FILE = ObjCHook/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -307,7 +339,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.taihe.ObjCHook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "通用测试DEV";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -317,8 +349,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 492U995837;
 				INFOPLIST_FILE = ObjCHook/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

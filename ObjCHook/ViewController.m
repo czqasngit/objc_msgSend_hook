@@ -16,7 +16,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    NSLog(@"............");
+    [self test];
+}
+- (void)test {
+//    [NSThread sleepForTimeInterval:1];
+    NSLog(@"test");
+    [self foo];
+    
+}
+- (void)foo {
+    for (int i = 0 ; i < 800000; i ++) {
+        NSString *s = @"111";
+        int _st = s.integerValue;
+    }
 }
 
 

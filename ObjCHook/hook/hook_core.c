@@ -133,6 +133,7 @@ void before_objc_msgSend(id object, SEL _cmd, uintptr_t lr) {
     if(_cd->index == 0) {
         _cd->first = _cs;
         _cd->stack_info_size = 1024;
+        if(_cd->stack_info) free(_cd->stack_info);
         _cd->stack_info = (char *)malloc(1024);
     }
     /// 入栈

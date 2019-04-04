@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
-#import "hook_.h"
+#import "hook.h"
+#import <objc/runtime.h>
 
 int main(int argc, char * argv[]) {
-    start_hook();
+    start_objc_msgSend_hook();
     @autoreleasepool {
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }

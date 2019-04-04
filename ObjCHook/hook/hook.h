@@ -11,6 +11,9 @@
 
 #include <stdio.h>
 
-void start_hook();
+/// 开始hook
+void start_objc_msgSend_hook(void);
+/// 停止
+void stop_objc_msgSend_hook(void);
 
 #endif /* hook__h */

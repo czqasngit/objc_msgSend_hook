@@ -23,7 +23,7 @@ const char *hook_getMethodName(Class cls, SEL _cmd) {
 uint64_t hook_getMillisecond() {
     struct timeval tv;
     gettimeofday(&tv,NULL);
-    return tv.tv_usec / 1000;
+    return tv.tv_usec / 1000 + tv.tv_sec * 1000;
 }
 
 bool hook_has_prefix(char *target, char *prefix) {

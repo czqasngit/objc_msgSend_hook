@@ -48,7 +48,7 @@ typedef struct {
     /// 当前数据总大小
     uint size;
     /// 总开销
-    uint32_t cost;
+    uint64_t cost;
     /// 是否是主线程
     bool is_main_thread;
     // 调用栈信息
@@ -88,13 +88,13 @@ char *dump_call_stack(call_stack *_cs) {
     if (cost > 100 && !hook_has_prefix(_cs->class_name, "OS_")) {
         int _count = _cs->dept;
         while (_count > 0) {
-            printf("-");
+            printf(" ");
             _count --;
         }
         char *space = (char *)malloc(_cs->dept);
         memset(space, ' ', _cs->dept);
         char *str = (char *)malloc(1024);
-        sprintf(str, "##%s %c [%s %s] %lld ms\n", space, '-', _cs->class_name, _cs->method_name, cost);
+        sprintf(str, "%s %c [%s %s] %lld ms\n", space, '-', _cs->class_name, _cs->method_name, cost);
         free(space);
         return str;
     }
@@ -103,10 +103,12 @@ char *dump_call_stack(call_stack *_cs) {
 /// 打印一个objc_msgSend完整调用信息
 void dump_method() {
     common_data *_cd = get_thread_call_stack();
+    _cd->cost = _cd->first->end_time - _cd->first->start_time;
     if(_cd->cost > 400 && _cd->first && !hook_has_prefix(_cd->first->class_name, "OS_")) {
-        printf("[%s][%s: %s]: %u ms\n", _cd->is_main_thread ? "主" : "子", _cd->first->class_name, _cd->first->method_name, _cd->cost);
+        printf("[%s][%s: %s]: %lld ms\n", _cd->is_main_thread ? "主" : "子", _cd->first->class_name, _cd->first->method_name, _cd->cost);
         printf("%s \n", _cd->stack_info);
     }
+    
 }
 /// hook 之前
 void before_objc_msgSend(id object, SEL _cmd, uintptr_t lr) {
@@ -127,12 +129,13 @@ void before_objc_msgSend(id object, SEL _cmd, uintptr_t lr) {
     /// 保存当前调用的方法名
     _cs->method_name = (char *)_cs->_cmd;
     /// 判断是否是元类的实例方法,即类的类方法
-    Class __cls = object_getClass(object);
+//    Class __cls = object_getClass(object);
 //    _cs->is_class_method = class_isMetaClass(__cls);
     /// index为0表示调用栈顶,即objc_msgSend初始调用(objc_msgSend内部还会调用其它objc_msgSend)
     if(_cd->index == 0) {
         _cd->first = _cs;
         _cd->stack_info_size = 1024;
+        if(_cd->stack_info) free(_cd->stack_info);
         _cd->stack_info = (char *)malloc(1024);
     }
     /// 入栈
@@ -147,9 +150,8 @@ uintptr_t after_objc_msgSend() {
     /// 获取即将完成的调用
     call_stack *stack = &(_cd->cs[_cd->index]);
     stack->end_time = hook_getMillisecond();
-    _cd->cost += (stack->end_time - stack->start_time);
+//    _cd->cost += (stack->end_time - stack->start_time);
     /// 打印单个方法执行信息
-   
     if(_cd->index > 0) {
         char *_stack_info = dump_call_stack(stack);
         if(_stack_info) {
@@ -170,6 +172,7 @@ uintptr_t after_objc_msgSend() {
     if (_cd->index == 0){
         dump_method();
         _cd->stack_info_size = 1024;
+        if(_cd->stack_info) free(_cd->stack_info);
         _cd->stack_info = (char *)malloc(_cd->stack_info_size);
     }
     /// 将下一条函数指令返回,并存放到寄存器x0

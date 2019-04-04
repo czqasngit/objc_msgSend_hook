@@ -77,6 +77,7 @@ common_data *get_thread_call_stack() {
 /// 如果调用栈大小不够,重新分配空间
 void realloc_call_stack_memery_ifneed() {
     common_data *_cd = get_thread_call_stack();
+    /// 重新分配空间
     if (_cd->index >= _cd->size) {
         _cd->size += 10;
         _cd->cs = (call_stack *)realloc(_cd->cs, sizeof(call_stack) * _cd->size);

@@ -68,6 +68,9 @@ common_data *get_thread_call_stack() {
         /// 当前调用栈索引
         _cd->index = 0;
         _cd->cost = 0;
+        /// 防止野指针的出现
+        /// https://github.com/czqasngit/objc_msgSend_hook/issues/1
+        _cd->stack_info = NULL;
         /// 存放共享数据
         pthread_setspecific(_thread_key, (void *)_cd);
     }

@@ -20,10 +20,7 @@
 #include <dispatch/dispatch.h>
 #include "fishhook.h"
 
-/// 线程共享数据key
 static pthread_key_t _thread_key;
-/// 最小消耗打印阀值
-static int min_cost_dump = 300;
 
 typedef struct {
     uintptr_t lr;
@@ -111,7 +108,7 @@ char *dump_call_stack(call_stack *_cs) {
 void dump_method() {
     common_data *_cd = get_thread_call_stack();
     _cd->cost = _cd->first->end_time - _cd->first->start_time;
-    if(_cd->cost > min_cost_dump && _cd->first && !hook_has_prefix(_cd->first->class_name, "OS_")) {
+    if(_cd->cost > 400 && _cd->first && !hook_has_prefix(_cd->first->class_name, "OS_")) {
         printf("[%s][%s: %s]: %lld ms\n", _cd->is_main_thread ? "主" : "子", _cd->first->class_name, _cd->first->method_name, _cd->cost);
         printf("%s \n", _cd->stack_info);
     }
@@ -151,7 +148,7 @@ void before_objc_msgSend(id object, SEL _cmd, uintptr_t lr) {
 }
 /// hook 之后
 uintptr_t after_objc_msgSend() {
-    common_data *_cd = get_thread_call_stack();
+    common_data *_cd = (common_data *)pthread_getspecific(_thread_key);
     /// 后退
     _cd->index --;
     /// 获取即将完成的调用
@@ -187,14 +184,12 @@ uintptr_t after_objc_msgSend() {
 }
 /// 释放与线程共享数据的相关资源
 void release_thread_stack() {
-    printf("start release: %d - thread \n", pthread_main_np());
+    printf("release \n");
     common_data *_cd = (common_data *)pthread_getspecific(_thread_key);
     if(!_cd) return;
     if (_cd->cs) free(_cd->cs);
     if (_cd->stack_info) free(_cd->stack_info);
     free(_cd);
-    /// 清空,线程共享数据
-    pthread_setspecific(_thread_key, NULL);
 }
 
 void start_hook(void *hook_objc_msgSend, void **origin_objc_msgSend) {

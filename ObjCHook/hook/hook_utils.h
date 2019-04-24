@@ -16,7 +16,7 @@
 /// _target: NSObject 对象
 const char *hook_getObjectClassName(void *_target);
 /// 获取类名
-const char *hook_getMethodName(Class cls, SEL _cmd);
+//const char *hook_getMethodName(Class cls, SEL _cmd);
 /// 获取当前系统时间
 uint64_t hook_getMillisecond(void);
 /// 判断target是否包含有prefix字符串

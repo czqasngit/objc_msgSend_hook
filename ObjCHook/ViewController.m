@@ -23,10 +23,6 @@
 //    [NSThread sleepForTimeInterval:1];
     NSLog(@"test");
     [self foo];
-//    for (int i = 0 ; i < 800000; i ++) {
-//        NSString *s = @"111";
-//        int _st = s.integerValue;
-//    }
     
 }
 - (void)foo {

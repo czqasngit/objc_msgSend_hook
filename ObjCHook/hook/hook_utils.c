@@ -14,11 +14,11 @@
 const char *hook_getObjectClassName(void *_target) {
     return class_getName(object_getClass(_target));
 }
-//const char *hook_getMethodName(Class cls, SEL _cmd) {
-//    Method m = class_getClassMethod(cls, _cmd);
-//    struct objc_method_description *desc = method_getDescription(m);
-//    return "";
-//}
+const char *hook_getMethodName(Class cls, SEL _cmd) {
+    Method m = class_getClassMethod(cls, _cmd);
+    struct objc_method_description *desc = method_getDescription(m);
+    return "";
+}
 /// 获取当前系统时间
 uint64_t hook_getMillisecond() {
     struct timeval tv;

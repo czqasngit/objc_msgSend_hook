@@ -4,7 +4,7 @@
 
 ## 1.汇编入门:
     10分钟入门
-        - http://blackteachinese.com/2017/07/12/arm64/
+        - https://blackteachinese.github.io/2017/07/12/arm64/
     iOS开发汇编入门
         - https://blog.cnbluebox.com/blog/2017/07/24/arm64-start/?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io
     小例子入门
